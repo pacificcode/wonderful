@@ -1,4 +1,5 @@
 NOTE: Read this file in RAW for a better view of the JSON formatting of API responses.
+
 **Problem 1:**
 
 Provide a detailed description of the full stack that you would choose to build this API, complete with descriptive strategies for the following:
