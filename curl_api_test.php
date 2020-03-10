@@ -61,5 +61,5 @@ $obj->id_airport2 = 3830; // Chicago O'Hare
 
 $json = json_encode($obj);
 $response = api_curl_send($url, $json);
-print_r($response);
+print_r(json_decode($response));
 ?>
