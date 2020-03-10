@@ -25,24 +25,24 @@ Not Applicable (Unless other features were added on at a later time i.e. data fo
 
 Performance:
 As per requirements of 500 avg. requests/sec with spikes of 800 requests/sec.
-Round robin DNS (Route53) configured for with 2 primary WAN I.P's pointing to
-Dual ELB's routing requests to 3 High CPU backend servers each OR routing to configured Lambda instances:
-LB1 -> APIServer1 APIServer2 APIServer3
-LB2 -> APIServer4 APIServer5 APIServer6
+- Round robin DNS (Route53) configured for with 2 primary WAN I.P's pointing to
+- Dual ELB's routing requests to 3 High CPU backend servers each OR routing to configured Lambda instances:
+- LB1 -> APIServer1 APIServer2 APIServer3
+- LB2 -> APIServer4 APIServer5 APIServer6
 
 Database:
-Mysql 8.0.x
-1 Master
-4-6 Read only replication instances (More/Less replication instances can easily be added/removed as needed)
-API servers configured to balance DB connections to replication servers.
+- Mysql 8.0.x
+- 1 Master
+- 4-6 Read only replication instances (More/Less replication instances can easily be added/removed as needed)
+- API servers configured to balance DB connections to replication servers.
 
 Estimates:
 Scalability: The above will be easily scalable for higher/lower traffic estimates.
 Base pricing would be based on:
-DNS queries
-Dual ELB
-Base number of API servers (Or Lambda instances)
-DB Master and base number of replication servers.
+- DNS queries
+- Dual ELB
+- Base number of API servers (Or Lambda instances)
+- DB Master and base number of replication servers.
 
 **Problem 2:**
 
@@ -87,7 +87,9 @@ Response:
 
 **Problem 3:**
 
-Write and document an endpoint that is able to return a JSON-formatted response with the distance between two supplied airport id’s. The iOS-supplied information should be:
+Write and document an endpoint that is able to return a JSON-formatted
+response with the distance between two supplied airport id’s. The
+iOS-supplied information should be:
 
 - Airport 1 ID
 - Airport 2 ID
@@ -121,7 +123,12 @@ Response:
 }
 
 **Problem 4:**
-Write and document an endpoint that is able to return a JSON-formatted response with the geographically closest airports between two countries. For example, if tasked to compare the airports in the United States and Mexico, the endpoint would find the 1 airport in each country that is the shortest distance from the airport in the opposite country. The iOS supplied information should be:
+Write and document an endpoint that is able to return a JSON-formatted
+response with the geographically closest airports between two countries.
+For example, if tasked to compare the airports in the United States and
+Mexico, the endpoint would find the 1 airport in each country that is
+the shortest distance from the airport in the opposite country. The iOS
+supplied information should be:
 
 - Country 1 Name
 - Country 2 Name
@@ -159,7 +166,13 @@ Response:
 }
 
 **Problem 5:**
-Write and document an endpoint that is able to return a JSON-formatted list of instructions as to how to fly the shortest possible route (in terms of airport stops) from one airport to another. When generating these instructions, assume that an airplane can only travel 500 miles before requiring a stop to refuel. Therefore, the returned instructions should read as a list of airport stops, and the distance between each stop. The iOS supplied information should be:
+Write and document an endpoint that is able to return a JSON-formatted
+list of instructions as to how to fly the shortest possible route (in
+terms of airport stops) from one airport to another. When generating
+these instructions, assume that an airplane can only travel 500 miles
+before requiring a stop to refuel. Therefore, the returned instructions
+should read as a list of airport stops, and the distance between each
+stop. The iOS supplied information should be:
 
 - Airport 1 ID
 - Airport 2 ID
