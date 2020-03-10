@@ -165,7 +165,7 @@ Write and document an endpoint that is able to return a JSON-formatted list of i
 - Airport 2 ID
 
 Request:
-## Get airports between 2 id_airports
+## Plot route between 2 id_airports
 curl -d '{"id_airport1":3484, "id_airport2":9067}' -H "Content-Type: application/json" -X POST http://wonderful.pacificcode.com/api/plot_route
 
 {
