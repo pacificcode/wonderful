@@ -137,7 +137,7 @@ class api {
 
 	public function next_hop($id_airport1, $id_airport2, &$array)
 	{
-		$result = $this->db_obj->query("call test_route(".$id_airport1.", ".$id_airport2.")");
+		$result = $this->db_obj->query("call plot_route(".$id_airport1.", ".$id_airport2.")");
 		
 		if($result->num_rows == 0 || count($array) == 5)
 		{

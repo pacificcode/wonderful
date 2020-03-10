@@ -80,7 +80,7 @@ DELIMITER ;
 
 DROP PROCEDURE IF EXISTS `plot_route`;
 DELIMITER // 
-CREATE PROCEDURE test_route(IN id_airport1 int , IN id_airport2 int)
+CREATE PROCEDURE plot_route(IN id_airport1 int , IN id_airport2 int)
 BEGIN
 
 SET @lat1 = 0;
