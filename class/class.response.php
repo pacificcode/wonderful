@@ -5,10 +5,7 @@ class response {
 	
 	public function __construct()
 	{
-		$this->status = new stdClass();
 		$this->data = new stdClass();
-		$this->status->sys = SYS_STATUS;
-		$this->status->session = (Bool)true;
 		$this->response_execution = 0;
 	}
 

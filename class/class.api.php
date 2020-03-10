@@ -234,7 +234,7 @@ class api {
 		{
 			if(@!$this->post->{$array[$i]} || @$this->post->{$array[$i]} == "")
 			{
-				@$msg = "Missing required post variable. ".$name[$i]." eid:api-001";
+				@$msg = "Missing required post variable. ".$array[$i]." eid:api-001";
 				throw new Exception($msg);
 			}
 			if(preg_match('/[^0-9-\.]/',$this->post->{$array[$i]}))
