@@ -137,7 +137,7 @@ class api {
 
 	public function next_hop($id_airport1, $id_airport2, &$array)
 	{
-		$result = $this->db_obj->query("call plot_route(".$id_airport1.", ".$id_airport2.")");
+		$result = $this->db_obj->query("call test_route(".$id_airport1.", ".$id_airport2.")");
 		
 		if($result->num_rows == 0 || count($array) == 5)
 		{
@@ -338,8 +338,9 @@ class api {
 		json_session = '".json_encode($_SESSION)."',
 		stack_trace = '".addslashes($_trace)."',
 		request_uri = '".addslashes($_SERVER["REQUEST_URI"])."',
-		msg_0 = '".addslashes(trim($server)."...".trim(shell_exec('hostname')))."',
-		msg_1 = '".addslashes(trim($_error_msg))."'
+		msg_0 = '".addslashes(trim($_SERVER['REMOTE_ADDR'])."...".trim(shell_exec('hostname')))."',
+		msg_1 = '".addslashes(trim($_error_msg))."',
+		stamp_create = CURRENT_TIMESTAMP
 		";
 		
 		$this->db_obj->query($query);

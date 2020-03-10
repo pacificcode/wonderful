@@ -80,7 +80,7 @@ DELIMITER ;
 
 DROP PROCEDURE IF EXISTS `plot_route`;
 DELIMITER // 
-CREATE PROCEDURE plot_route(IN id_airport1 int , IN id_airport2 int)
+CREATE PROCEDURE test_route(IN id_airport1 int , IN id_airport2 int)
 BEGIN
 
 SET @lat1 = 0;
@@ -97,12 +97,11 @@ SET @distance_m = 0;
 	WHERE a.id_airport = id_airport1 && b.id_airport = id_airport2;
 
 	SELECT `id_airport`, `name`, `city`, `country`,`iata`,`icao`,`lat`,`lon`,`alt`,`tzone`,
-	ST_Distance_Sphere( position , @position1 ) / 1609.34 AS `distance_m`
+	ST_Distance_Sphere( @position1 , position ) / 1609.34 AS `distance_m`
 	FROM airport 
-	WHERE id_airport != id_airport1
-	&& lat BETWEEN @lat1 AND @lat2 
+	WHERE lat BETWEEN @lat1 - (500.0 / 111.045) AND @lat2 - (500.0 / 111.045)
 	&& lon BETWEEN @lon1 AND @lon2
-	&& ST_Distance_Sphere( position , @position1 ) / 1609.34 < 500
+	&& ST_Distance_Sphere( @position1 , position ) / 1609.34 < 500
 	ORDER BY `distance_m` DESC
 	LIMIT 1;
     
