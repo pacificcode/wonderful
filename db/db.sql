@@ -61,7 +61,7 @@ BEGIN
 END //
 DELIMITER ;
 
--- call distance_two_airport(5723, 3830 )
+-- call distance_two_airport(3626, 3797 )
 
 DROP PROCEDURE IF EXISTS `distance_airport_to_radius`;
 DELIMITER // 
@@ -99,7 +99,7 @@ SET @distance_m = 0;
 	SELECT `id_airport`, `name`, `city`, `country`,`iata`,`icao`,`lat`,`lon`,`alt`,`tzone`,
 	ST_Distance_Sphere( @position1 , position ) / 1609.34 AS `distance_m`
 	FROM airport 
-	WHERE lat BETWEEN @lat1 - (500.0 / 111.045) AND @lat2 - (500.0 / 111.045)
+	WHERE lat BETWEEN @lat1 - (500.0 / 111.045) AND @lat2 + (500.0 / 111.045)
 	&& lon BETWEEN @lon1 AND @lon2
 	&& ST_Distance_Sphere( @position1 , position ) / 1609.34 < 500
 	ORDER BY `distance_m` DESC
