@@ -5,7 +5,7 @@
 
 DB=airport
 DB_USER=airport
-DB_PASSWD=airport
+DB_PASSWD=passwd
 DATA_INFILE=airport-data.csv
 DATA_OUTFILE=airport-data-unix.csv
 SQL_INFILE=data.sql
